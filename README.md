@@ -1,13 +1,16 @@
-# Website
+# minik8s
 
-网站基于 [Docusaurus 2](https://docusaurus.io/)改进开发。计划支持的功能有：
+本仓库是minik8s的文档、演示视频网站的仓库。
 
-- WebOffice的嵌入
-- 个性化的主题
-- 后期计划：将所有的笔记的raw文件和web仓库文件全部分离，实现统一样式和自动化发布
+- Github仓库地址：[https://github.com/Musicminion/minik8s](https://github.com/Musicminion/minik8s)
+- Gitee仓库地址：[https://gitee.com/Musicminion/minik8s](https://gitee.com/Musicminion/miniK8s)
 
-#### 首页效果图：
-<img width="1324" alt="截屏2023-05-18 16 57 08" src="https://github.com/ayaka-notes/template-notes/assets/84625273/5db37205-8583-4e39-aad7-5f3b7c4ff8f0">
+小组成员如下所示：
 
-#### 内容效果图：
-<img width="1319" alt="截屏2023-05-18 16 59 25" src="https://github.com/ayaka-notes/template-notes/assets/84625273/aec68656-7a36-4b81-8e82-26e98d6e40be">
+| 姓名   | 学号         | Github主页                  | 成员 |
+| ------ | ------------ | --------------------- | ---- |
+| 董云鹏 | 517021910011 | [@dongyunpeng-sjtu](https://github.com/dongyunpeng-sjtu) | 组长 |
+| 冯逸飞   | 520030910021 | [@every-breaking-wave](https://github.com/every-breaking-wave)   | 组员 |
+| 张子谦 | 520111910121 | [@Musicminion](https://github.com/Musicminion)   | 组员 |
+
+网站模版链接：[网站模版链接](https://github.com/ayaka-notes/template-notes)，基于多库龙二次修改，By [@Musicminion](https://github.com/Musicminion)
