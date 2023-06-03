@@ -1,0 +1,33 @@
+---
+sidebar_position: 8
+title: 容错
+---
+
+:::info
+Pod的演示视频一共有三个。
+- 第一个演示视频展示基础答辩文档要求的容错
+- 第二个演示视频删除Pod后Pleg自动删除节点的Pod
+- 第三个演示视频展示删除容器之后自动重建Pod
+
+:::
+
+### 演示视频1
+
+该视频展示基础容错：
+- 重启所有的控制平面，重启所有的工作节点，然后保证Pod可以访问
+
+<iframe src="https://takagi3-my.sharepoint.com/personal/zhangziqian_ayaka_space/_layouts/15/embed.aspx?UniqueId=761defb2-0630-4edb-bda2-ea1e22a617cc&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=OneUpFileViewer&referrerScenario=EmbedDialog.Create" frameborder="0" scrolling="no" allowfullscreen title="fault-base_display.mp4"></iframe>
+
+
+### 演示视频2
+
+该视频展示高级容错：
+- 删除etcd里面的某一个Pod，一段时间后Kubelet自动删除香港的Pod
+
+<iframe src="https://takagi3-my.sharepoint.com/personal/zhangziqian_ayaka_space/_layouts/15/embed.aspx?UniqueId=2d56cc4c-b9f4-40de-a215-2c98a30c80e6&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=OneUpFileViewer&referrerScenario=EmbedDialog.Create" frameborder="0" scrolling="no" allowfullscreen title="pleg-auto-delete.mp4"></iframe>
+
+### 演示视频3
+
+该视频展示高级容错：
+- 删除Node里面正在运行的一个容器，然后一段时间后发现删除的容器自动重建
+<iframe src="https://takagi3-my.sharepoint.com/personal/zhangziqian_ayaka_space/_layouts/15/embed.aspx?UniqueId=504c8964-4239-453c-8a1b-3d2829a5adea&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=OneUpFileViewer&referrerScenario=EmbedDialog.Create" frameborder="0" scrolling="no" allowfullscreen title="pleg-recreate-container.mp4"></iframe>

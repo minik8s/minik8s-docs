@@ -45,7 +45,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/ayaka-notes/template-notes/tree/main/',
+            'https://github.com/minik8s/minik8s-docs/tree/main/',
           remarkPlugins: [math],
           rehypePlugins: [katex],  
         },
@@ -93,7 +93,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Docs',
+            label: '项目文档',
           },
           {
             href: 'https://github.com/facebook/docusaurus',

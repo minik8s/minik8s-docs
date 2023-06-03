@@ -20,17 +20,21 @@ title: 项目简介
 - Github的组员的用户名和上面的表格一致对应
 - Gitee中的Musicminion、zhangziqian相关的用户名对应的组员张子谦
 - Gitee中的云中对应的组员董云鹏
-- Gitee中的root对应的部署上云后的jCloud运维账户
+- Gitee中的root对应的部署上云后的jCloud运维账户，因为jCloud的用户就是root
 - Gitee中的wave、If Wind、breaking-wave用户对应的组员冯逸飞(这也是我们选择Weave网络插件的原因)
 :::
 
 项目仓库的原始地址：
-- Github: https://github.com/Musicminion/minik8s/
+- Github: https://github.com/Musicminion/minik8s
 - Gitee: https://gitee.com/Musicminion/miniK8s
 
+文档相关的地址：
+- 文档仓库地址：https://github.com/minik8s/minik8s-docs
+- 文档链接地址：https://minik8s.ayaka.space
 
 :::info
 特别感谢:
 - 多库龙为本网站的搭建提供的框架支持!
 - Microsoft Stream提供的视频播放平台支持!
+- netlify为我们的网站免费部署提供了强大的支持!
 :::
