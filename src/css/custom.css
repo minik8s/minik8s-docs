@@ -55,3 +55,21 @@
 .navbar__logo img:hover {
   transform: rotate(360deg); /* 鼠标悬停时旋转 */
 }
+
+
+
+
+/* For Video Iframe */
+@media (max-width: 610px) {
+  iframe[src^="//takagi3-my.sharepoint.com"], iframe[src^="https://takagi3-my.sharepoint.com/"], iframe[src^="http://takagi3-my.sharepoint.com/"] {
+      width: 100%;
+      height: calc(70.25vw - 50.625px);
+  }
+}
+
+@media (min-width: 610px) {
+  iframe[src^="//takagi3-my.sharepoint.com"], iframe[src^="https://takagi3-my.sharepoint.com/"], iframe[src^="http://takagi3-my.sharepoint.com/"] {
+      width: 100%;
+      height: min(556.125px, calc(56.25vw + 17.375px));
+  }
+}
