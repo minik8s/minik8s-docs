@@ -1,7 +1,9 @@
 ---
 sidebar_position: 3
 title: 项目管理
+
 ---
+
 ## 项目管理
 
 :::info
@@ -39,10 +41,10 @@ title: 项目管理
 - Scheduler：负责从所有的可以使用的节点中，根据一定的调度策略，当收到Pod调度请求时，返回合适的节点
 - Serveless：单独运行的一个服务器，负责维护Serveless的函数相关对象的管理，同时负责转发用户的请求到合适的Pod来处理
 - RabbitMQ：作为消息队列，集群内部的进程间通讯工具
-运行在WorkerNode上面的主要有下面的几个组件
+  运行在WorkerNode上面的主要有下面的几个组件
 - kubeproxy：负责DNS、Iptable的修改，维护Service的状态等
 - Kubelet：维护Pod的底层创建，Pod生命周期的管理，Pod异常的重启/重建等
-Redis：作为本地的缓存Cache，哪怕API-Server完全崩溃，因为有本地的Redis，机器重新启动之后，Kubelet也能够恢复之前容器的状态
+  Redis：作为本地的缓存Cache，哪怕API-Server完全崩溃，因为有本地的Redis，机器重新启动之后，Kubelet也能够恢复之前容器的状态
 
 ![upload_2684ba3c6f31c714360855ca1387f4eb](3-project_management.assets/upload_2684ba3c6f31c714360855ca1387f4eb.png)
 
@@ -60,12 +62,16 @@ Redis：作为本地的缓存Cache，哪怕API-Server完全崩溃，因为有本
 
 如下图所示，是我们开发时候的Pr合并的情况。所有的Pr都带有相关的Label，便于合并的时候审查。考虑到后期的合并比较频繁，我们几乎都是每天都需要合并最新的工作代码到Development分支，然后运行单元测试。测试通过之后再合并到Master分支。![upload_4cdfa2fa3c7cb0dbdf7dc47e54444f71](3-project_management.assets/upload_4cdfa2fa3c7cb0dbdf7dc47e54444f71.png)
 
+![image-20230604222918240](3-project_management.assets/image-20230604222918240.png)
+
 **CI/CD介绍**：CI/CD作为我们软件质量的重要保证之一。我们通过Git Action添加了自己的Runner，并编写了项目的测试脚本来实现CI/CD。保证每次运行前环境全部初始化。
 
-- 所有的日常代码的推送都会被发送到我们自己的服务器，运行单元测试，并直接显示在单次推送的结果后方
-- 当发起Pr时，自动会再一次运行单元测试，测试通过之后才可以合并
+- 所有的日常代码的推送都会被发送到我们自己的服务器，运行单元测试，并直接显示推送结果
+- 当发起PR时，自动会再一次运行单元测试，测试通过之后才可以合并
 - 运行单元测试通过之后，构建可执行文件，发布到机器的bin目录下
 - 以上2,3条通过之后，对于合并到Master的情况，会构建docker相关的镜像(例如GPU Job的docker镜像、Function的基础镜像)推送到dockerhub
+
+![image-20230604223055932](3-project_management.assets/image-20230604223055932.png)
 
 **软件测试介绍**：go语言自身支持测试框架。并且鼓励把项目文件和测试文件放在同一个文件夹下面。例如某一个项目的文件是file.go,那么测试的文件的名字就是file_test.go。最终要运行整个项目测试的时候，只需要在项目的根目录运行 `go test ./...` 即可完成整个项目的测试。测试会输出详细的测试通过率，非常方便。
 
