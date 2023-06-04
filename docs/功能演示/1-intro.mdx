@@ -3,6 +3,8 @@ sidebar_position: 1
 title: 视频概述
 ---
 
+### 视频地址
+
 视频可以在下面的地址进行下载和观看，如果遇到jbox的网络问题，可能需要拨通校内的VPN，如果遇到其Onedrive的网络问题，可能需要相关网络的工具。相关的视频均可支持在线播放和下载。
 - jBox视频链接：[minik8s-jbox](https://jbox.sjtu.edu.cn/l/A1vyHg)
 - oneDrive视频链接：[minik8s-onedrive](https://takagi3-my.sharepoint.com/:f:/g/personal/zhangziqian_ayaka_space/ErRFcwr4XZNLrDYzMcZr7zEBUmgCfGyJ7oe0Ql6D_kcwQw?e=JRYy0T)
@@ -18,3 +20,86 @@ title: 视频概述
 
 登录完成之后，请**关闭登录的对话框**，然后**刷新页面**，即可看到所有的视频。
 :::
+
+### 视频解说
+
+#### Node抽象视频介绍
+Node抽象视频的内容主要是：
+- 通过kubectl命令查看Node的信息
+- 启动Kubelet，然后通过kubectl命令查看Node的信息
+- 可以获取新加入的Node的IP、CPU、内存等信息
+
+#### Pod抽象视频介绍
+Pod抽象一共有两个视频，分别是：
+- 第一个演示视频展示pod的创建、pod内容器的通讯。
+    - 通过kubectl创建pod
+    - 通过docker ps查看创建的pod的运行情况
+    - 通过kubectl 查看创建的Pod的运行情况、IP等信息
+- 第二个演示视频展示pod在多机的调度和volume的挂载
+    - 通过kubectl创建pod，pod被调度到了不同的node上
+    - 通过docker查看挂载的目录的情况，在容器和主机里面均可以访问
+
+
+#### Service抽象视频介绍
+
+Service的演示的视频内容主要是：
+- 通过kubectl命令创建一个Service
+- 在Node-1访问Service的IP
+- 在Node-2访问Service的IP
+- 在容器内部访问Service的IP
+- 相关的负载均衡的策略(随机)
+
+
+#### DNS抽象视频介绍
+DNS抽象演示的视频内容主要是：
+- 展示创建的pod和service
+- 然后创建DNS
+- 展示DNS创建的效果
+- 展示主机访问curl访问相关的域名
+- 展示容器内部curl访问相关的域名
+- 展示相关的etc/hosts的文件内容
+
+#### Replicaset抽象视频介绍
+Replicaset抽象演示视频的内容是
+- 创建一个Replica
+- 获取创建Replica的结果
+- 创建相关的Service，来绑定相关的Replica
+- 删除某一个Pod，然后观察Replica的变化
+- 观察到Replica的数量恢复到原来的数量
+
+#### HPA抽象视频介绍
+HPA抽象演示视频的内容是
+- 创建一个HPA，并指定扩容缩容的速度
+- 手动触发容器加压，产生性能压力
+- 观察到HPA的变化
+- 观察到相关Pod的数量的增加
+- 降低容器压力，观察到相关Pod的数量的减少
+
+#### 容错视频介绍
+容错的演示视频一共有三个。
+- 第一个演示视频展示基础答辩文档要求的容错
+- 第二个演示视频删除Pod后Pleg自动删除节点的Pod
+- 第三个演示视频展示删除容器之后自动重建Pod
+
+#### GPU任务视频介绍
+GPU任务演示视频主要是
+- 提交一个GPU的JOB
+- 通过kubectl查看JOB的状态
+- 查看到执行的结果
+
+#### Serveless自选题视频介绍
+Serveless自选题的演示视频一共有两个。
+- 第一个演示视频展示Function的创建、删除、Scale to zero、Scale from zero、调用等功能
+- 第二个演示视频展示Workflow的创建、删除、调用等功能
+
+第一个演示视频演示的内容主要有：
+- 创建一个Function
+- 调用该Function，已经查看调用的结果
+- 当Function长时间没有使用的时候，自动Scale to zero
+- 当Function被调用的时候，自动Scale from zero
+- 更新该Function
+- 删除该Function
+
+第二个视频演示的内容主要有：
+- 创建一个工作流
+- 通过kubectl查看工作流的执行的结果
