@@ -22,9 +22,9 @@ title: 答辩问题解释
 
 ![2023-06-01-153415](./2-explain.assets/2023-06-01-153415.png)
 
-- 如下所示，Kubectl发送请求会指定好对应的Function的Namespace和Name，然后Serveless这个程序内置了一个Server(或者说他的本质是一个Proxy，把来自Kubectl的请求，根据要调用的Function的Namespace和Name，转发给相关函数的Pod)。
-- Serveless这个程序内置了一个Server会维护一个RouteTable，记录和一个Function相关的所有的Pod的IP，然后把请求转发给Pod的IP，收到结果之后，然后把函数的处理结果返回给Kubectl。这样用户就可以查看到函数调用的结果
-- 如下面的代码所示，是Serveless程序内置的一个服务器，启动的时候暴露相关的接口，供Kubectl调用。
+- 如下所示，Kubectl发送请求会指定好对应的Function的Namespace和Name，然后Serverless这个程序内置了一个Server(或者说他的本质是一个Proxy，把来自Kubectl的请求，根据要调用的Function的Namespace和Name，转发给相关函数的Pod)。
+- Serverless这个程序内置了一个Server会维护一个RouteTable，记录和一个Function相关的所有的Pod的IP，然后把请求转发给Pod的IP，收到结果之后，然后把函数的处理结果返回给Kubectl。这样用户就可以查看到函数调用的结果
+- 如下面的代码所示，是Serverless程序内置的一个服务器，启动的时候暴露相关的接口，供Kubectl调用。
 
 ```go
 func (s *server) Run() {
