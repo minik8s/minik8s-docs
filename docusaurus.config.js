@@ -138,22 +138,22 @@ const config = {
                 label: 'iPads 实验室',
                 href: 'http://ipads.se.sjtu.edu.cn/',
               },
-              {
-                label: 'ICS 课程网站',
-                href: 'https://ipads.se.sjtu.edu.cn/courses/ics/',
-              },
             ],
           },
           {
-            title: '个人链接',
+            title: '项目链接',
             items: [
               {
-                label: 'GitHub',
-                href: 'https://github.com/Musicminion',
+                label: 'GitHub-Organization',
+                href: 'https://github.com/minik8s',
               },
               {
-                label: '水源社区',
-                href: 'https://shuiyuan.sjtu.edu.cn/u/ayaka',
+                label: 'GitHub-miniK8S',
+                href: 'https://github.com/Musicminion/minik8s',
+              },
+              {
+                label: 'Gitee-miniK8S',
+                href: 'https://gitee.com/Musicminion/miniK8s',
               },
             ],
           },
