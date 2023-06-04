@@ -9,7 +9,7 @@ title: Service抽象实现
 
 - 我们选择使用Iptables来实现proxy功能。当Kubeproxy收到service的更新消息后，会依据service和endpoint的ip信息更新本地的iptables，具体的更新方法参照了[这篇文章](https://www.bookstack.cn/read/source-code-reading-notes/kubernetes-kube_proxy_iptables.md), 出于简化的目的我们删去了一些规则，最终Iptables的设计如下：
 
-![upload_781b8696b7fe8cdc401458d1a07d8d1a](6-service.assets/upload_781b8696b7fe8cdc401458d1a07d8d1a-16858844339201.png)
+![upload_781b8696b7fe8cdc401458d1a07d8d1a](6-Service.assets/upload_781b8696b7fe8cdc401458d1a07d8d1a.png)
 
 此时访问service的规则流向为：
 `PREROUTING --> KUBE-SERVICE --> KUBE-SVC-XXX --> KUBE-SEP-XXX`
