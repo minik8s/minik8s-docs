@@ -96,7 +96,7 @@ const config = {
             label: '项目文档',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/musicminion/minik8s',
             label: 'GitHub',
             position: 'right',
           },
