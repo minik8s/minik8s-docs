@@ -32,3 +32,23 @@ server {
 - 使所有的pod均挂载/etc/hosts目录
 
 以上实现均可行，我们选择了第一种做法。
+
+以下为示例yaml文件：
+
+```yaml
+apiVersion: v1
+kind: Dns
+metadata:
+  name: test-dns
+spec:
+  host: test.com
+  paths:
+  - subPath: /api/v2           # 子路径
+    svcName: service-example
+    svcPort: 88
+
+```
+
+使用方法：在nginx pod与nginx service创建好之后，使用以下命令：
+
+`kubectl apply dns.yaml`

@@ -21,6 +21,39 @@ pod内需要能运⾏多个容器，它们可以通过localhost互相访问。�
 
 ![242514737-6aaea87c-4887-44fc-b72b-4a7fe4038ae4](5-pod.assets/242514737-6aaea87c-4887-44fc-b72b-4a7fe4038ae4.png)
 
+以下为示例yaml文件：
+
+````yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: service
+  name: pod-example1
+  namespace: default
+spec:
+  containers:
+    - image: registry.cn-hangzhou.aliyuncs.com/tanjunchen/network-multitool:v1
+      name: test1
+      ports:
+        - containerPort: 80
+      resources:
+        requests:
+          memory: 100000000      # 单位为byte
+        limits:
+          memory: 200000000
+    - image: musicminion/func-base
+      name: test2
+      ports:
+        - containerPort: 18080
+    - image: docker.io/library/redis
+      name: test3
+      command: ["sh", "-c", "redis-server --appendonly yes"]
+````
+
+使用方法：
+
+`kubectl apply pod.yaml`
 
 ## CNI Plugin
 

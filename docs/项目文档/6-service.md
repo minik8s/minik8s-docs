@@ -15,3 +15,25 @@ title: Service抽象实现
 `PREROUTING --> KUBE-SERVICE --> KUBE-SVC-XXX --> KUBE-SEP-XXX`
 
 Service和Pod的创建没有先后要求。如果先创建Pod，后创建的Service会搜索所有匹配的endpoint。如果先创建Service，后创建的pod创建对应的endpoint后会反向搜索所有匹配的Service。最终将上述对象打包成serviceUpdate对象发送给kubeproxy进行iptables的更新。
+
+以下为示例yaml文件：
+
+```yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: service-example
+  namespace: default
+spec:
+  ports:
+    - name: http
+      port: 88	      # service的端口
+      targetPort: 80  # 匹配的pod暴露的端口
+      protocol: tcp
+  selector:
+    app: service
+```
+
+使用方法：
+
+`kubectl apply service.yaml`

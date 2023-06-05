@@ -30,3 +30,34 @@ cudaMemcpy((void *)dev_C, (void *)host_C, sizeof(int *) * M, cudaMemcpyHostToDev
 最终输出的效果如下所示：
 
 ![upload_d0f674c49bc33f69066713c6396d8993](9-gpu.assets/upload_d0f674c49bc33f69066713c6396d8993.png)
+
+示例yaml文件：
+
+```yaml
+apiVersion: v1
+kind: Job
+metadata:
+  name: job-example1
+  namespace: test-job-namespace
+spec:
+  partition: dgx2
+  nTasks: 1
+  nTasksPerNode: 6
+  submitDirectory: "change-me"
+  runCommands: [
+    "module load cuda/9.2.88-gcc-4.8.5",
+    "nvcc matrix_add.cu -o matrix_add",
+    "nvcc matrix_multiply.cu -o matrix_multiply",
+    "./matrix_add",
+    "./matrix_multiply",
+  ]
+  outputFile: "job-example1.out"
+  errorFile: "job-example1.err"
+  username: "change-me"
+  password: "change-me"
+  gpuNums: 1
+```
+
+使用方法：
+
+`kubectl apply job.yaml`

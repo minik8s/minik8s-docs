@@ -23,3 +23,69 @@ Serveless功能点主要实现了两个抽象：Function和Workflow抽象，Func
 
 ![2023-06-01-153415](10-serverless.assets/2023-06-01-153415.png)
 
+- function.yaml
+
+  ```
+  apiVersion: v1
+  kind: Function
+  metadata:
+    name: func1
+  spec:
+    userUploadFilePath: "/xx/example-1" # 计算任务所在目录
+  ```
+
+- workflow.yaml
+
+  ```
+  kind: Workflow
+  apiVersion: v1
+  metadata:
+    name: workflow-example
+    namespace: default
+  spec:
+    entryParams: '{"x": 1, "y": 2}'
+    entryNodeName: node1
+    workflowNodes: 
+    - name: node1
+      type: func			# 节点类型，func为计算节点，choice为判断节点
+      funcData:
+        funcName: func2   # x = x + y, y = x - y
+        funcNamespace: default
+        nextNodeName: node2
+    - name: node2
+      type: choice
+      choiceData:
+        trueNextNodeName: node3
+        falseNextNodeName: node4
+        checkType: numGreaterThan   # if checkVar > 0, goto node3, else goto node4
+        checkVarName: y
+        compareValue: 0
+    - name: node3
+      type: func
+      funcData:
+        funcName: func3    # x = x^2, y = y^2
+        funcNamespace: default
+    - name: node4
+      type: func
+      funcData:
+        funcName: func1    # x = x - y, y = y - x
+        funcNamespace: default
+  ```
+
+使用方法：
+
+- 创建function
+
+  `kubectl apply function.yaml`
+
+- 触发对应function
+
+  `kubectl execute [namespace]/[funcname] {args}`
+
+- 创建对应workflow
+
+  `kubectl apply workflow.yaml`
+
+- 查看执行结果
+
+  `kubectl get workflow [namespace]/[workflowname]`
