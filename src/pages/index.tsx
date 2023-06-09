@@ -7,6 +7,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import MainAvatar from '@site/src/components/Avatar';
 
 import styles from './index.module.css';
+import TimeLine from '../components/TimeLine';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -37,6 +38,7 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <TimeLine/>
       </main>
     </Layout>
   );
